@@ -1,0 +1,41 @@
+extend main
+block head
+	link(rel="stylesheet", type="text/css", href="/css/search.css")
+block content
+	#content
+		center
+			br
+			h1#search SEARCH RESULTS
+				=" "
+				span#search-gray : &#8220;#{search_text}&#8221;
+			br
+			#search-container
+				-if(!name_results && !ingredient_results && !tag_results)
+					|No results found.
+				-else
+					if name_results
+						h2.search-category #{search_text}
+							=" "
+							span.search-category-gray : NAME
+						each result in name_results
+							a(href="/recipe/#{result.shortname || result.id}")
+								.search-result
+									h1#result-title #{result.name}
+						br
+					if ingredient_results
+						h2.search-category #{search_text}
+							=" "
+							span.search-category-gray : INGREDIENTS
+						each result in ingredient_results
+							a(href="/recipe/#{result.shortname || result.id}")
+								.search-result
+									h1#result-title #{result.name}
+						br
+					if tags_results
+						h2.search-category #{search_text}
+							=" "
+							span.search-category-gray : TAGS
+						each result in tags_results
+							a(href="/recipe/#{result.shortname || result.id}")
+								.search-result
+									h1#result-title #{result.name}

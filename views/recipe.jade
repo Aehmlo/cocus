@@ -1,0 +1,78 @@
+extend main
+block head
+	link(rel="stylesheet", type="text/css", href="//fonts.googleapis.com/css?family=Merriweather:400italic")
+	link(rel="stylesheet", type="text/css", href="/css/recipe.css")
+block content
+	a(href="/edit/#{recipe.id}")
+		#edit-button EDIT
+	a(href="/my-recipes", style="color: inherit; text-decoration: none; border: none;")
+			//-
+				#back
+					span(style="font-size: 2em; position: relative; top: 0.1em;") &lsaquo;
+					|Back to My Recipes
+	br
+	#recipe-container
+		#recipe-top
+			h1#recipe-name #{recipe.name}
+			h2#author-name #{recipe.author}
+			if false
+				.stars &#9733; &#9733; &#9733; &#9733; &#9733;
+			br
+			hr
+			br
+			#times
+				.time
+					.time-text prep time
+					span.number #{recipe.prep_time}
+					span.mins
+				br.breaker
+				.time
+					.time-text cook time
+					span.number #{recipe.cook_time}
+					span.mins
+				br#breaker.breaker
+				.time
+					.time-text ready in
+					span.number #{recipe.total_time}
+					span.mins
+				br.breaker
+				.time
+					.time-text serves
+					span.number.gray #{recipe.serves}
+			br
+			hr
+			br
+			#moar
+				if recipe.notes
+					.moar-container
+						h3.shouty-gray NOTES
+						.content "#{recipe.notes}"
+				if recipe.tags
+					.moar-container
+						h3.shouty-gray TAGS
+						.content
+							each tag in recipe.tags
+								.tag #{tag.text}
+		br#top-breaker
+		#ingredients
+			h2.gray INGREDIENTS
+			if recipe.ingredients
+				ul
+					each ingredient in recipe.ingredients
+						li #{ingredient.text}
+			else
+				|No ingredients given.
+	br
+	br
+	#separator
+	#content
+		br
+		br
+		h2.gray DIRECTIONS
+		br
+		if recipe.steps
+			ol.steps.gray
+				each step in recipe.steps
+					li #{step.text}
+		else
+			|No steps given.

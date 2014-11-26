@@ -1,0 +1,23 @@
+{
+  "name": "cocus",
+  "version": "2.0.0",
+  "description": "Cocus redux.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aehmlo/cocus"
+  },
+  "author": "Aehmlo Lxaitn <aehmlo@aehmlo.com> (http://aehmlo.com/)",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/aehmlo/cocus/issues"
+  },
+  "dependencies": {
+    "express": "~4.10.4",
+    "jade": "~1.7.0",
+    "body-parser": "~1.9.3"
+  }
+}

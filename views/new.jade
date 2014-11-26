@@ -1,0 +1,41 @@
+extend main
+block head
+	link(rel="stylesheet", type="text/css", href="/css/new.css")
+block content
+	br
+	form(action="/new-recipe", method="post")
+		center
+				h1#title ADD A NEW RECIPE
+				table
+					tr
+						td Recipe Title
+						td
+							input.blue(type="text", name="recipe[name]")
+					tr
+						td Prep Time
+						td
+							input.blue(type="number", name="recipe[prep]")
+					tr
+						td Cook Time
+						td
+							input.blue(type="number", name="recipe[cook]")
+					tr
+						td Serves
+						td
+							input.blue(type="number", name="recipe[serves]")
+					tr
+						td Ingredients (newline-separated)
+						td
+							textarea.blue(name="recipe[ingredients]")
+					tr
+						td Directions (newline-separated)
+						td
+							textarea.blue(name="recipe[directions]")
+					tr
+						td Tags (comma-separated)
+						td
+							input.blue(type="text", name="recipe[tags]")
+					tr
+						td
+						td.right
+							input(type="submit")

@@ -1,0 +1,33 @@
+extend main
+block head
+	link(rel="stylesheet", type="text/css", href="//fonts.googleapis.com/css?family=Merriweather:400italic")
+	link(rel="stylesheet", type="text/css", href="/css/my.css")
+block content
+	center
+		#header.right
+			a(href="/new-recipe")
+				#add-button ADD A RECIPE
+			br
+			br
+			if recipes
+				span#progress Showing #{recipes.length ? 20*(page-1)+1+"-"+(21*(page-1)+recipes.length) : "0"} of #{count}
+			else
+				span#progress Showing 0 of 0
+		h1#my-recipes MY RECIPES
+		br
+		#recipe-container.left
+			if recipes
+				-var indices = {a: false, b: false, c: false, d: false, e: false, f: false, g: false, h: false, i: false, j: false, k: false, l: false, m: false, n: false, o: false, p: false, q: false, r: false, s: false, t: false, u: false, v: false, w: false, x: false, y: false, z: false, '#': false}
+				each recipe in recipes
+					-var index = recipe.name.toLowerCase().charAt(0)
+					-if(!indices.hasOwnProperty(index)) index = "#"
+					-if(!indices[index])
+						h1.section-header #{index.toUpperCase()}
+						-indices[index] = true
+					a(href="/recipe/#{recipe.shortname || recipe.id}")
+										.recipe
+											h1#recipe-title #{recipe.name}
+				if show_next
+					.right(style="width: 80%;")
+						a.next-page.gray(href="/my-recipes/page/#{page+1}") Next Page
+

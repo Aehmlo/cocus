@@ -1,0 +1,41 @@
+extend main
+block head
+	link(rel="stylesheet", type="text/css", href="/css/new.css")
+block content
+	br
+	form(action="/edit/#{recipe.id}", method="post")
+		center
+				h1#title EDITING RECIPE: #{recipe.name}
+				table
+					tr
+						td Recipe Title
+						td
+							input.blue(type="text", name="recipe[name]", value="#{recipe.name}")
+					tr
+						td Prep Time
+						td
+							input.blue(type="number", name="recipe[prep]", value="#{recipe.prep_time}")
+					tr
+						td Cook Time
+						td
+							input.blue(type="number", name="recipe[cook]", value="#{recipe.cook_time}")
+					tr
+						td Serves
+						td
+							input.blue(type="number", name="recipe[serves]", value="#{recipe.serves}")
+					tr
+						td Ingredients (newline-separated)
+						td
+							textarea.blue(name="recipe[ingredients]") #{recipe.ingredients_separated_by_newlines}
+					tr
+						td Directions (newline-separated)
+						td
+							textarea.blue(name="recipe[directions]") #{recipe.directions_separated_by_newlines}
+					tr
+						td Tags (comma-separated)
+						td
+							input.blue(type="text", name="recipe[tags]", value="#{recipe.tags_separated_by_commas}")
+					tr
+						td
+						td.right
+							input(type="submit")

@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		title #{title} | Kristi's Recipe Database
+		link(rel="stylesheet", type="text/css", href="//fonts.googleapis.com/css?family=Montserrat")
+		link(rel="stylesheet", type="text/css", href="/css/reset.css")
+		link(rel="stylesheet", type="text/css", href="/css/base.css")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
+		block head
+	body
+		header
+			a.navlink(style="padding-left: 0.5em;")
+				img(src="/images/navbar-logo.png", style="max-height: 1.2em; position: relative; top: 0.2em;")
+			a.navlink(href="/") Home
+			a.navlink(href="/my-recipes") My Recipes
+			br.navbar-breaker
+			//-#account Kristi Hamilton &#9660;
+			br.navbar-breaker
+		block content

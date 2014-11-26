@@ -1,0 +1,18 @@
+extend main
+block head
+	link(rel="stylesheet", type="text/css", href="//fonts.googleapis.com/css?family=Shadows+Into+Light")
+	link(rel="stylesheet", type="text/css", href="/css/home.css")
+block content
+	#content
+		form(action="/search", method="get")
+			img#chef-hat(src="/images/chef-hat.png")
+			br
+			img#get-cook-on(src="/images/cook-on-text.png")
+			#search-container
+				|I want to eat
+				=" "
+				input#search(type="search", name="q")
+				br
+				label(for="search") type in recipe name, tags, or ingredients
+	br
+	br
