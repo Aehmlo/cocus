@@ -4,6 +4,8 @@ var bodyParser = require("body-parser");
 var Recipe = require("./models/recipe");
 var app = express();
 
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.text());
 app.use(bodyParser.json());
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
@@ -21,6 +23,7 @@ app.get("/recipe/:slug", function(req, res, next) {
 	var slug = req.params.slug;
 	Recipe.findBySlug(slug, function(err, recipe) {
 		if(err) return next(err);
+		console.dir(recipe);
 		return res.render("recipe", {
 			recipe: recipe
 		});
@@ -63,7 +66,8 @@ app.post("/add-recipe", function(req, res, next) {
 			if(err) return next(err);
 			res.redirect("/recipe/" + recipe.slug);
 		});
-	} catch(e) {
+	} catch(err) {
+		console.dir(err);
 		return next(err);
 	}
 });
