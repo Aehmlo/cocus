@@ -24,7 +24,6 @@ recipeSchema.pre("validate", function(next) {
 	try {
 		var parts = this.name.replace(/[^A-Za-z0-9 ]/g, "").split(" "); // ASCII characters only
 		this.slug = parts.join("-").toLowerCase();
-		console.log("Created slug", this.slug, "for recipe name", this.name);
 		next();
 	} catch(err) {
 		return next(err);
