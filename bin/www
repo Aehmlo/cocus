@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+var app = require("..");
+var mongoose = require("mongoose");
+var port = process.env.PORT || 1338;
+
+mongoose.connect("mongodb://localhost/recipes");
+
+mongoose.connection.once("connected", function() {
+	app.listen(port, function() {
+		console.log("App now listening on port", port);
+	});
+});
