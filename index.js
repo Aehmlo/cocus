@@ -25,4 +25,8 @@ app.get("/recipe/:slug", function(req, res, next) {
 	});
 });
 
+app.get("/add-recipe", function(req, res, next) {
+	res.render("add-recipe");
+});
+
 module.exports = app;
