@@ -15,4 +15,14 @@ app.get("/recipes", function(req, res, next) {
 	});
 });
 
+app.get("/recipe/:slug", function(req, res, next) {
+	var slug = req.params.slug;
+	Recipe.findBySlug(slug, function(err, recipe) {
+		if(err) return next(err);
+		return res.render("recipe", {
+			recipe: recipe
+		});
+	});
+});
+
 module.exports = app;
