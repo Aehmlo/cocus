@@ -1,0 +1,16 @@
+doctype html
+html
+	head
+		title Add Recipe
+	body
+		form(action="/add-recipe", method="post")
+			input(type="text", name="name", placeholder="recipe name")
+			input(type="text", name="source", placeholder="source")
+			input(type="url", name="url", placeholder="url")
+			input(type="text", name="categories", placeholder="categories (comma-separated)")
+			input(type="text", name="tags", placeholder="tags (comma-separated)")
+			textarea(name="ingredients", placeholder="ingredients (newline-separated)")
+			textarea(name="directions", placeholder="directions (newline-separated)")
+			input(name="prep", type="number", placeholder="prep time")
+			input(name="cook", type="number", placeholder="cook time")
+			input(name="serves", type="number", placeholder="serves")
