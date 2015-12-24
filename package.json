@@ -1,0 +1,30 @@
+{
+  "name": "cocus",
+  "version": "1.0.0",
+  "description": "A recipe database site.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aehmlo/cocus.git"
+  },
+  "keywords": [
+    "recipe",
+    "recipes",
+    "cocus"
+  ],
+  "author": "Alex Hamilton <alex@hmltn.me>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aehmlo/cocus/issues"
+  },
+  "homepage": "https://github.com/aehmlo/cocus#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "kerberos": "0.0.17",
+    "mongoose": "^4.3.4"
+  }
+}
