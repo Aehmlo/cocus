@@ -16,6 +16,10 @@ var recipeSchema = mongoose.Schema({
 	slug: {type: String, required: true, unique: true}
 });
 
+recipeSchema.statics.findBySlug = function(slug, callback) {
+	return this.model("Recipe").findOne({slug: slug}, callback);
+};
+
 recipeSchema.virtual("time.total").get(function() {
 	return this.time.prep + this.time.cook || undefined;
 });
