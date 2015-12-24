@@ -23,7 +23,6 @@ app.get("/recipe/:slug", function(req, res, next) {
 	var slug = req.params.slug;
 	Recipe.findBySlug(slug, function(err, recipe) {
 		if(err) return next(err);
-		console.dir(recipe);
 		return res.render("recipe", {
 			recipe: recipe
 		});
@@ -67,7 +66,6 @@ app.post("/add-recipe", function(req, res, next) {
 			res.redirect("/recipe/" + recipe.slug);
 		});
 	} catch(err) {
-		console.dir(err);
 		return next(err);
 	}
 });
