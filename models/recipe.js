@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 
 var recipeSchema = mongoose.Schema({
-	name: { type: String, required: true, unique: true},
+	name: {type: String, required: true, unique: true},
 	source: String,
 	url: String,
 	categories: [String],
