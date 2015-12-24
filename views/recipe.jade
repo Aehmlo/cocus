@@ -1,0 +1,13 @@
+doctype html
+html
+	head
+		title #{recipe.name}
+	body
+		h1 #{recipe.name}
+		if recipe.source
+			if recipe.url
+				h2
+					a(href=recipe.url)
+						#{recipe.source}
+			else 
+				h2 #{recipe.source}
