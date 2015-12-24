@@ -2,15 +2,40 @@ doctype html
 html
 	head
 		title Add Recipe
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		style(type="text/css").
+			form {
+				text-align: center;
+				text-align: -webkit-center;
+			}
+			input:not([type="submit"]), textarea, #add-recipe-container, h1 {
+				width: 60%;
+			}
+			input:not([type="submit"]), textarea, #add-recipe-container {
+				display: block;
+				min-height: 2em;
+				vertical-align: middle;
+				margin: 1em 0;
+			}
+			#add-recipe-container, h1 {
+				text-align: left;
+			}
+			textarea {
+				resize: vertical;
+				min-height: 4em;
+			}
 	body
 		form(action="/add-recipe", method="post")
-			input(type="text", name="name", placeholder="recipe name")
+			h1 Add a Recipe
+			input(type="text", name="name", placeholder="recipe name", required="required", autocomplete="off")
 			input(type="text", name="source", placeholder="source")
-			input(type="url", name="url", placeholder="url")
-			input(type="text", name="categories", placeholder="categories (comma-separated)")
-			input(type="text", name="tags", placeholder="tags (comma-separated)")
-			textarea(name="ingredients", placeholder="ingredients (newline-separated)")
-			textarea(name="directions", placeholder="directions (newline-separated)")
-			input(name="prep", type="number", placeholder="prep time")
-			input(name="cook", type="number", placeholder="cook time")
-			input(name="serves", type="number", placeholder="serves")
+			input(type="url", name="url", placeholder="url", autocomplete="off")
+			input(type="text", name="categories", placeholder="categories (comma-separated)", autocomplete="off")
+			input(type="text", name="tags", placeholder="tags (comma-separated)", autocomplete="off")
+			textarea(name="ingredients", placeholder="ingredients (newline-separated)", autocomplete="off")
+			textarea(name="directions", placeholder="directions (newline-separated)", required="required", autocomplete="off")
+			input(name="prep", type="number", placeholder="prep time", autocomplete="off")
+			input(name="cook", type="number", placeholder="cook time", autocomplete="off")
+			input(name="serves", type="number", placeholder="serves", autocomplete="off")
+			#add-recipe-container
+				input(type="submit", value="Add Recipe")
