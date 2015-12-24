@@ -26,7 +26,7 @@ recipeSchema.virtual("time.total").get(function() {
 
 recipeSchema.pre("validate", function(next) {
 	try {
-		var parts = this.name.replace(/[^A-Za-z0-9 ]/g, "").split(" "); // ASCII characters only
+		var parts = this.name.replace(/[^A-Za-z0-9 ]/g, "").split(" "); // Alphanumeric characters (and space) only
 		this.slug = parts.join("-").toLowerCase();
 		next();
 	} catch(err) {
