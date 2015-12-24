@@ -2,12 +2,50 @@ doctype html
 html
 	head
 		title #{recipe.name}
+		style(type="text/css").
+			span.tag:after {
+				content: ",";
+			}
+			span.tag:last-child:after {
+				content: "";
+			}
 	body
 		h1 #{recipe.name}
 		if recipe.source
 			if recipe.url
 				h2
 					a(href=recipe.url)
-						#{recipe.source}
+						|#{recipe.source}
 			else 
 				h2 #{recipe.source}
+		table
+			tr
+				if recipe.time.prep
+					td prep time
+				if recipe.time.cook
+					td cook time
+				if recipe.time.prep && recipe.time.cook
+					td ready in
+				if recipe.serves
+					td serves
+			tr
+				if recipe.time.prep
+					td #{recipe.time.prep} min
+				if recipe.time.cook
+					td #{recipe.time.cook} min
+				if recipe.time.prep && recipe.time.cook
+					td #{recipe.time.total} min
+				if recipe.serves
+					td #{recipe.serves}
+		|Tags: 
+		each tag in recipe.tags
+			span.tag #{tag}
+		if recipe.ingredients
+			h3 Ingredients
+			ul
+			each ingredient in recipe.ingredients
+				li #{ingredient}
+		h3 Directions
+		ol
+			each step in recipe.directions
+				li #{step}
