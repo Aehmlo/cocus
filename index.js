@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var Recipe = require("./models/recipe");
 var app = express();
 
+app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json());
