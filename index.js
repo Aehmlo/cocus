@@ -29,6 +29,16 @@ app.get("/recipe/:slug", function(req, res, next) {
 	});
 });
 
+app.get("/recipe/:slug/edit", function(req, res, next) {
+	var slug = req.params.slug;
+	Recipe.findBySlug(slug, function(err, recipe) {
+		if(err) return next(err);
+		return res.render("edit-recipe", {
+			recipe: recipe
+		});
+	});
+});
+
 app.get("/add-recipe", function(req, res, next) {
 	res.render("add-recipe");
 });
