@@ -1,0 +1,83 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+header {
+	background-color: rgb(27, 177, 0);
+	color: #fff;
+	padding: 1.5em 1em 1.5em 4em;
+	vertical-align: middle;
+}
+header a {
+	font-size: 1.5em;
+	color: inherit;
+	text-decoration: none;
+	margin: 0 1.25em;
+	font-weight: 300;
+}
+header img#navbar-logo {
+	max-height: 2em;
+	position: absolute;
+	top: 1.25em;
+	left: 1.5em;
+}
+#search-container {
+	background-color: #e0b000;
+	color: #fff;
+	display: inline-block;
+	border-radius: 0.5em;
+	padding: 1em 0.75em;
+	font-size: 2.5em;
+	width: 85%;
+	font-family: "Shadows Into Light", cursive;
+}
+label {
+	font-family: "Shadows Into Light", cursive;
+	margin-right: 1em;
+}
+input#search {
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid #fff;
+	outline: none;
+	width: 80%;
+	color: #fff;
+	font-size: 1em;
+	border-radius: 0;
+	display: inline-block;
+	padding: 0;
+}
+#content {
+	background-image: url('/images/home-background.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+	padding: 12em 0 3em 0;
+	margin: 0;
+	width: 100%;
+	min-height: 40em;
+}
+img#chef-hat {
+	max-height: 7em;
+	margin-bottom: 1em;
+}
+img#get-cook-on {
+	max-width: 50em;
+	margin-bottom: 5em;
+}
+@media screen and (max-width:  900px) {
+	img#chef-hat {
+		max-height: 6em;
+	}
+	img#get-cook-on {
+		max-width: 20em;
+	}
+	input#search {
+		width: 98%;
+	}
+}
+input[type="search"]::-webkit-search-cancel-button {
+	display: none;
+}

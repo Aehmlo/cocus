@@ -1,0 +1,22 @@
+doctype html
+html
+	head
+		title Home
+		link(rel="stylesheet", type="text/css", href="/css/reset.css")
+		link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css?family=Montserrat")
+		link(rel="stylesheet", type="text/css", href="https://fonts.googleapis.com/css?family=Shadows+Into+Light")
+		link(rel="stylesheet", type="text/css", href="/css/index.css")
+	body
+		header
+			img#navbar-logo(src="/images/navbar-logo.png")
+			a(href="/") Home
+			a(href="/recipes") My Recipes
+		#content
+			form(action="/search")
+				img#chef-hat(src="/images/chef-hat.png")
+				br
+				img#get-cook-on(src="/images/cook-on-text.png")
+				#search-container
+					label(for="search") I want to eat
+					input#search(type="search", name="q", required="required")
+					label(for="search")
