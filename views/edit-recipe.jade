@@ -1,0 +1,20 @@
+doctype html
+html
+	head
+		title Edit Recipe
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel="stylesheet", type="text/css", href="/css/recipe-entry.css")
+	body
+		form(action="/recipe/#{recipe.slug}/edit")
+			input(type="text", name="name", placeholder="recipe name", required="required", autocomplete="off", value="#{recipe.name}")
+			input(type="text", name="source", placeholder="source", value="#{recipe.source}")
+			input(type="url", name="url", placeholder="url", autocomplete="off", value="#{recipe.url}")
+			input(type="text", name="categories", placeholder="categories (comma-separated)", autocomplete="off", value="#{recipe.categories.join(", ")}")
+			input(type="text", name="tags", placeholder="tags (comma-separated)", autocomplete="off", value="#{recipe.tags.join(", ")}")
+			textarea(name="ingredients", placeholder="ingredients (newline-separated)", autocomplete="off") #{(recipe.ingredients || "").join("\r\n")}
+			textarea(name="directions", placeholder="directions (newline-separated)", required="required", autocomplete="off") #{recipe.directions.join("\r\n")}
+			input(name="prep", type="number", placeholder="prep time", autocomplete="off", value="#{recipe.time.prep}")
+			input(name="cook", type="number", placeholder="cook time", autocomplete="off", value="#{recipe.time.cook}")
+			input(name="serves", type="number", placeholder="serves", autocomplete="off", value="#{recipe.serves}")
+			#add-recipe-container
+				input(type="submit", value="Save")

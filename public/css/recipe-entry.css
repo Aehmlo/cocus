@@ -1,0 +1,19 @@
+form {
+	text-align: center;
+	text-align: -webkit-center;
+}
+input:not([type="submit"]), textarea, #add-recipe-container, h1 {
+	width: 60%;
+}
+input:not([type="submit"]), textarea, #add-recipe-container {
+	display: block;
+	min-height: 2em;
+	margin: 1em 0;
+}
+#add-recipe-container, h1 {
+	text-align: left;
+}
+textarea {
+	resize: vertical;
+	min-height: 4em;
+}
