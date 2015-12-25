@@ -27,6 +27,9 @@ recipeSchema.pre("validate", function(next) {
 	try {
 		var parts = this.name.replace(/[^A-Za-z0-9 ]/g, "").split(" "); // Alphanumeric characters (and space) only
 		this.slug = parts.join("-").toLowerCase();
+		for(var i = 0; i < this.tags.length; i++) {
+			this.tags[i] = this.tags[i].trim();
+		}
 		next();
 	} catch(err) {
 		return next(err);

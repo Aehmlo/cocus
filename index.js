@@ -39,12 +39,19 @@ app.get("/recipe/:slug/edit", function(req, res, next) {
 		});
 	});
 });
+app.post("/recipe/:slug/edit", function(req, res, next) {
+	var slug = req.params.slug;
+	Recipe.findBySlug(slug, function(err, recipe) {
+		if(err) return next(err);
+		return updateRecipe(recipe, req, res, next);
+	});
+});
 
 app.get("/add-recipe", function(req, res, next) {
 	res.render("add-recipe");
 });
 
-app.post("/add-recipe", function(req, res, next) {
+var updateRecipe = function(recipe, req, res, next) {
 	try {
 		var name = req.body.name;
 		var source = req.body.source || undefined;
@@ -57,13 +64,13 @@ app.post("/add-recipe", function(req, res, next) {
 		var cookTime = req.body.cook || undefined;
 		var serves = req.body.serves || undefined;
 
-		var recipe = new Recipe({name: name});
 		if(source) recipe.source = source;
 		if(url) recipe.url = url;
 		recipe.categories = categories;
 		recipe.tags = tags;
 		recipe.ingredients = ingredients;
 		recipe.directions = directions;
+		recipe.serves = serves;
 		if(prepTime) recipe.time = {prep: prepTime};
 		if(cookTime) {
 			if(recipe.time) {
@@ -79,6 +86,11 @@ app.post("/add-recipe", function(req, res, next) {
 	} catch(err) {
 		return next(err);
 	}
+};
+
+app.post("/add-recipe", function(req, res, next) {
+	var recipe = new Recipe({name: req.body.name});
+	updateRecipe(recipe, req, res, next);
 });
 
 module.exports = app;

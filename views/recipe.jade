@@ -4,12 +4,17 @@ html
 		title #{recipe.name}
 		style(type="text/css").
 			span.tag:after {
-				content: ",";
+				content: ", ";
 			}
-			span.tag:last-child:after {
+			span.tag:last-of-type:after {
 				content: "";
 			}
+			td, th {
+				text-align: center;
+				padding: 0 1em;
+			}
 	body
+		a(href="/recipe/#{recipe.slug}/edit") Edit
 		h1 #{recipe.name}
 		if recipe.source
 			if recipe.url
@@ -21,13 +26,13 @@ html
 		table
 			tr
 				if recipe.time.prep
-					td prep time
+					th prep time
 				if recipe.time.cook
-					td cook time
+					th cook time
 				if recipe.time.prep && recipe.time.cook
-					td ready in
+					th ready in
 				if recipe.serves
-					td serves
+					th serves
 			tr
 				if recipe.time.prep
 					td #{recipe.time.prep} min
@@ -37,7 +42,7 @@ html
 					td #{recipe.time.total} min
 				if recipe.serves
 					td #{recipe.serves}
-		|Tags: 
+		|Tags 
 		each tag in recipe.tags
 			span.tag #{tag}
 		if recipe.ingredients
