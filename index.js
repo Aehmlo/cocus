@@ -100,4 +100,8 @@ var search = function(req, res, next) {
 app.get("/search", search);
 app.get("/search/:q", search);
 
+app.get("/", function(req, res) {
+	res.render("index");
+});
+
 module.exports = app;
