@@ -30,10 +30,10 @@ recipeSchema.index({
 });
 
 recipeSchema.statics.search = function(query, callback) {
-	return this.model("Recipe").find({
+	return this.model("Recipe").find(
 		{$text: { $search: query } },
 		{score: { $meta: "textScore" }}
-	}).sort({
+	).sort({
 		score: { $meta: "textScore" }
 	}).exec(callback);
 };
