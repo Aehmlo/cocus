@@ -71,13 +71,15 @@ var updateRecipe = function(recipe, req, res, next) {
 		recipe.ingredients = ingredients;
 		recipe.directions = directions;
 		recipe.serves = serves;
-		if(prepTime) recipe.time = {prep: prepTime};
+		if(prepTime) {
+			recipe.time = {prep: prepTime}
+		} else {
+			recipe.time = {prep: null};
+		}
 		if(cookTime) {
-			if(recipe.time) {
-				recipe.time.cook = cookTime;
-			} else {
-				recipe.time = {cook: cookTime};
-			}
+			recipe.time.cook = cookTime;
+		} else {
+			recipe.time.cook = null;
 		}
 		recipe.save(function(err) {
 			if(err) return next(err);

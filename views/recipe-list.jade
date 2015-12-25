@@ -3,6 +3,8 @@ html
 	head
 		title Recipes
 		link(rel="stylesheet", type="text/css", href="/css/reset.css")
+		link(rel="stylesheet", type="text/css", href="/css/main.css")
 	body
 		each recipe in recipes
-			|#{recipe.name}
+			a(href="/recipe/#{recipe.slug}") #{recipe.name}
+			br
