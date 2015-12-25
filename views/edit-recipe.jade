@@ -4,6 +4,7 @@ html
 		title Edit Recipe
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		link(rel="stylesheet", type="text/css", href="/css/recipe-entry.css")
+		link(rel="stylesheet", type="text/css", href="/css/reset.css")
 	body
 		form(action="/recipe/#{recipe.slug}/edit", method="post")
 			input(type="text", name="name", placeholder="recipe name", required="required", autocomplete="off", value="#{recipe.name}")
