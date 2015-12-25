@@ -1,0 +1,21 @@
+doctype html
+html
+	head
+		title
+			if query
+				|Search Results
+			else
+				|Search
+		link(rel="stylesheet", type="text/css", href="/css/reset.css")
+		link(rel="stylesheet", type="text/css", href="/css/main.css")
+	body
+		form(action="/search")
+			input(type="search", placeholder="search", name="q", value="#{query || ''}", required="required")
+		if query
+			if results && results.length
+				h2 Search results for "#{query}"
+				each recipe in results
+					a(href="/recipe/#{recipe.slug}") #{recipe.name}
+					br
+			else
+				|No results found.
