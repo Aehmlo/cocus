@@ -86,8 +86,8 @@ app.post("/add-recipe", function(req, res, next) {
 	updateRecipe(recipe, req, res, next);
 });
 
-app.get("/search", function(req, res, next) {
-	var query = req.body.q || "";
+var search = function(req, res, next) {
+	var query = req.query.q || req.params.q || "";
 	Recipe.search(query, function(err, results) {
 		if(err) return next(err);
 		res.render("search", {
@@ -95,6 +95,9 @@ app.get("/search", function(req, res, next) {
 			results: results
 		});
 	});
-});
+};
+
+app.get("/search", search);
+app.get("/search/:q", search);
 
 module.exports = app;
