@@ -54,33 +54,24 @@ app.get("/add-recipe", function(req, res, next) {
 var updateRecipe = function(recipe, req, res, next) {
 	try {
 		var name = req.body.name;
-		var source = req.body.source || undefined;
-		var url = req.body.url || undefined;
+		var source = req.body.source || null;
+		var url = req.body.url || null;
 		var categories = (req.body.categories || "").split(",");
 		var tags = (req.body.tags || "").split(",");
 		var ingredients = (req.body.ingredients || "").replace("\r", "").split("\n");
 		var directions = req.body.directions.replace("\r", "").split("\n");
-		var prepTime = req.body.prep || undefined;
-		var cookTime = req.body.cook || undefined;
-		var serves = req.body.serves || undefined;
+		var prepTime = req.body.prep || null;
+		var cookTime = req.body.cook || null;
+		var serves = req.body.serves || null;
 
-		if(source) recipe.source = source;
-		if(url) recipe.url = url;
+		recipe.source = source;
+		recipe.url = url;
 		recipe.categories = categories;
 		recipe.tags = tags;
 		recipe.ingredients = ingredients;
 		recipe.directions = directions;
 		recipe.serves = serves;
-		if(prepTime) {
-			recipe.time = {prep: prepTime}
-		} else {
-			recipe.time = {prep: null};
-		}
-		if(cookTime) {
-			recipe.time.cook = cookTime;
-		} else {
-			recipe.time.cook = null;
-		}
+		recipe.time = {cook: cookTime, prep: prepTime};
 		recipe.save(function(err) {
 			if(err) return next(err);
 			res.redirect("/recipe/" + recipe.slug);
