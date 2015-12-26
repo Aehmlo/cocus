@@ -1,7 +1,7 @@
 body {
 	font-size: 18px;
 	font-family: Merriweather, sans-serif;
-	padding: 0 0 0 0.5em;
+	padding: 0;
 	margin: 0;
 }
 span.tag {
@@ -114,6 +114,6 @@ table td:first-child, table th:first-child {
 }
 #content {
 	position: relative;
-	padding: 0;
+	padding: 0 0 0 0.5em;
 	margin: 0;
 }
