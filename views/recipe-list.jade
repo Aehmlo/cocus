@@ -5,6 +5,6 @@ html
 		link(rel="stylesheet", type="text/css", href="/css/reset.css")
 		link(rel="stylesheet", type="text/css", href="/css/main.css")
 	body
+		include mixins/recipe
 		each recipe in recipes
-			a(href="/recipe/#{recipe.slug}") #{recipe.name}
-			br
+			+recipe-cell(recipe)
