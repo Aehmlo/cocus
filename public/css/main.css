@@ -18,3 +18,22 @@ header img#navbar-logo {
 	top: 1.25em;
 	left: 1.5em;
 }
+
+a.recipe-link {
+	text-decoration: none;
+	color: inherit;
+}
+.recipe {
+	padding: 2em 0;
+    box-shadow: 0 0 4px 2px #d6d6d6;
+    border-radius: 0.35em;
+    margin: 0.5em 0;
+}
+.recipe h1 {
+	font-size: 2em;
+}
+.recipe h1:before {
+	background-color: #00d2ff;
+    content: "\00a0";
+    margin-right: 1em;
+}
