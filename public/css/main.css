@@ -28,6 +28,7 @@ a.recipe-link {
     box-shadow: 0 0 4px 2px #d6d6d6;
     border-radius: 0.35em;
     margin: 0.5em 0;
+    font-family: Helvetica, Arial, sans-serif;
 }
 .recipe h1 {
 	font-size: 2em;
