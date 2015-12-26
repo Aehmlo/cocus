@@ -1,0 +1,119 @@
+body {
+	font-size: 18px;
+	font-family: Merriweather, sans-serif;
+	padding: 0 0 0 0.5em;
+	margin: 0;
+}
+span.tag {
+	border-radius: 0.4em;
+	background-color: rgb(0, 199, 255);
+	color: #fff;
+	padding: 0 0.75em;
+	line-height: 1.1em;
+	text-transform: uppercase;
+	font-family: "Helvetica Neue UltraLight", "Helvetica Neue-UltraLight", HelveticaNeue-UltraLight,Helvetica, Arial, sans-serif;
+	font-style: italic;
+	margin: 0 0.3em;
+}
+td, th {
+	text-align: center;
+	padding: 0 1em;
+}
+h1 {
+	font-size: 2em;
+	margin-top: 0.5em;
+	margin-bottom: 0.25em;
+	color: #2a2a2a;
+	font-family: Montserrat, sans-serif;
+}
+h1:before {
+	background-color: rgb(0, 199, 255);
+	width: 0.5em;
+	content: "\00a0";
+	margin-right: 0.1em;
+}
+h2 {
+	font-size: 1.75em;
+	margin-left: 0.57em;
+}
+h3 {
+	color: rgb(85, 85, 85);
+	text-transform: uppercase;
+	font-family: Montserrat, sans-serif;
+	font-size: 1.25em;
+}
+td {
+	color: rgb(245, 173, 0);
+	font-size: 2em;
+}
+td .min {
+	font-size: 0.5em;
+}
+td.serves, th {
+	color: rgb(85, 85, 85);
+}
+ul {
+	list-style: disc inside;
+}
+li > span {
+	font-style: italic;
+	color: #686868;
+}
+li {
+	color: #f6ba00;
+	text-indent: -1.25em;
+	padding-left: 1.25em;
+}
+ol {
+	list-style: decimal inside;
+}
+#tags-label {
+	color: rgb(139, 139, 139);
+	text-transform: uppercase;
+	font-family: Montserrat, sans-serif;
+	font-style: normal;
+}
+span#edit {
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: inline-block;
+	color: #fff;
+	background-color: rgb(0, 199, 255);
+	padding: 0.5em 1.5em;
+	font-family: "HelveticaNeue-UltraLight", "Helvetica Neue-UltraLight", HelveticaNeue-UltraLight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-style: italic;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+table {
+	border: none;
+	border-collapse: collapse;
+}
+table td {
+	font-family: Montserrat, sans-serif;
+}
+table th {
+	font-family: Merriweather, sans-serif;
+	font-style: italic;
+}
+table td, table th {
+	border-left: 1px solid rgb(153, 153, 153);
+}
+table td:first-child, table th:first-child {
+	border-left: none;
+}
+#tags {
+	display: inline-block;
+	padding-left: 0.5em;
+}
+#content {
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
