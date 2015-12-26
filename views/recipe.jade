@@ -11,6 +11,7 @@ html
 				font-size: 18px;
 				font-family: Merriweather, sans-serif;
 				padding: 0 0 0 0.5em;
+				margin: 0;
 			}
 			span.tag {
 				border-radius: 0.4em;
@@ -29,7 +30,7 @@ html
 			}
 			h1 {
 				font-size: 2em;
-				margin-top: 1em;
+				margin-top: 0.5em;
 				margin-bottom: 0.25em;
 				color: #2a2a2a;
 				font-family: Montserrat, sans-serif;
@@ -88,7 +89,9 @@ html
 				display: inline-block;
 				color: #fff;
 				background-color: rgb(0, 199, 255);
-				padding: 0.5em 1em;
+				padding: 0.5em 1.5em;
+				font-family: "HelveticaNeue-UltraLight", "Helvetica Neue-UltraLight", HelveticaNeue-UltraLight, "Helvetica Neue", Helvetica, Arial, sans-serif;
+				font-style: italic;
 			}
 			a {
 				color: inherit;
@@ -118,64 +121,70 @@ html
 				display: inline-block;
 				padding-left: 0.5em;
 			}
+			#content {
+				position: relative;
+				padding: 0;
+				margin: 0;
+			}
 	body
-		a(href="/recipe/#{recipe.slug}/edit")
-			span#edit Edit
-		h1 #{recipe.name}
-		if recipe.source
-			if recipe.url
-				h2
-					a(href=recipe.url)
-						|#{recipe.source}
-			else 
-				h2 #{recipe.source}
-		br
-		table
-			tr
-				td(colspan="4")
-					hr
-			tr
-				if recipe.time.prep
-					th prep time
-				if recipe.time.cook
-					th cook time
-				if recipe.time.prep && recipe.time.cook
-					th ready in
-				if recipe.serves
-					th serves
-			tr
-				if recipe.time.prep
-					td #{recipe.time.prep}
-						span.min min.
-				if recipe.time.cook
-					td #{recipe.time.cook}
-						span.min min.
-				if recipe.time.prep && recipe.time.cook
-					td #{recipe.time.total}
-						span.min min.
-				if recipe.serves
-					td.serves #{recipe.serves}
-			tr
-				td(colspan="4")
-					hr
-		br
-		span#tags-label Tags
-		#tags
-			if !recipe.tags.length
-				span.tag None
-			each tag in recipe.tags
-				span.tag #{tag}
-		br
-		br
-		if recipe.ingredients
-			h3 Ingredients
-			ul
-				each ingredient in recipe.ingredients
-					li
-						span #{ingredient}
+		#content
+			a(href="/recipe/#{recipe.slug}/edit")
+				span#edit Edit
+			h1 #{recipe.name}
+			if recipe.source
+				if recipe.url
+					h2
+						a(href=recipe.url)
+							|#{recipe.source}
+				else 
+					h2 #{recipe.source}
 			br
-		h3 Directions
-		ol
-			each step in recipe.directions
-				li
-					span #{step}
+			table
+				tr
+					td(colspan="4")
+						hr
+				tr
+					if recipe.time.prep
+						th prep time
+					if recipe.time.cook
+						th cook time
+					if recipe.time.prep && recipe.time.cook
+						th ready in
+					if recipe.serves
+						th serves
+				tr
+					if recipe.time.prep
+						td #{recipe.time.prep}
+							span.min min.
+					if recipe.time.cook
+						td #{recipe.time.cook}
+							span.min min.
+					if recipe.time.prep && recipe.time.cook
+						td #{recipe.time.total}
+							span.min min.
+					if recipe.serves
+						td.serves #{recipe.serves}
+				tr
+					td(colspan="4")
+						hr
+			br
+			span#tags-label Tags
+			#tags
+				if !recipe.tags.length
+					span.tag None
+				each tag in recipe.tags
+					span.tag #{tag}
+			br
+			br
+			if recipe.ingredients
+				h3 Ingredients
+				ul
+					each ingredient in recipe.ingredients
+						li
+							span #{ingredient}
+				br
+			h3 Directions
+			ol
+				each step in recipe.directions
+					li
+						span #{step}
