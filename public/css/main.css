@@ -1,0 +1,20 @@
+header {
+	font-family: Helvetica, Arial, sans-serif;
+	background-color: rgb(27, 177, 0);
+	color: #fff;
+	padding: 1.5em 1em 1.5em 4em;
+	vertical-align: middle;
+}
+header a {
+	font-size: 1.5em;
+	color: inherit;
+	text-decoration: none;
+	margin: 0 1.25em;
+	font-weight: 300;
+}
+header img#navbar-logo {
+	max-height: 2em;
+	position: absolute;
+	top: 1.25em;
+	left: 1.5em;
+}
