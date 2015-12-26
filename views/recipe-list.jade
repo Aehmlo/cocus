@@ -4,7 +4,15 @@ html
 		title Recipes
 		link(rel="stylesheet", type="text/css", href="/css/reset.css")
 		link(rel="stylesheet", type="text/css", href="/css/main.css")
+		style(type="text/css").
+			#recipe-container {
+				width: 70%;
+				text-align: left;
+			}
 	body
-		include mixins/recipe
-		each recipe in recipes
-			+recipe-cell(recipe)
+		include includes/header
+		center
+			#recipe-container
+				include mixins/recipe
+				each recipe in recipes
+					+recipe-cell(recipe)
