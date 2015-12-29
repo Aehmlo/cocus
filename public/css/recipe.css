@@ -92,6 +92,9 @@ a {
 a:hover {
 	text-decoration: underline;
 }
+a.tag-link:hover {
+	text-decoration: none;
+}
 table {
 	border: none;
 	border-collapse: collapse;
