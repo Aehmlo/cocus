@@ -7,6 +7,7 @@ html
 		link(rel="stylesheet", type="text/css", href="/css/main.css")
 		link(rel="stylesheet", type="text/css", href="/css/recipe-entry.css")
 	body
+		include includes/header
 		form(action="/recipe/#{recipe.slug}/edit", method="post")
 			input(type="text", name="name", placeholder="recipe name", required="required", autocomplete="off", value="#{recipe.name}")
 			input(type="text", name="source", placeholder="source", value="#{recipe.source}")
