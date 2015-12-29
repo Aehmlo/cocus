@@ -55,7 +55,8 @@ html
 				if !recipe.tags.length
 					span.tag None
 				each tag in recipe.tags
-					span.tag #{tag}
+					a(href="/search?q=#{tag.replace(' ', '+')}")
+						span.tag #{tag}
 			br
 			br
 			if recipe.ingredients
