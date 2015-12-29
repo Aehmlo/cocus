@@ -7,8 +7,8 @@ html
 		link(rel="stylesheet", type="text/css", href="/css/main.css")
 		link(rel="stylesheet", type="text/css", href="/css/recipe-entry.css")
 	body
+		include includes/header
 		form(action="/add-recipe", method="post")
-			h1 Add a Recipe
 			input(type="text", name="name", placeholder="recipe name", required="required", autocomplete="off")
 			input(type="text", name="source", placeholder="source")
 			input(type="url", name="url", placeholder="url", autocomplete="off")
