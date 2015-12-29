@@ -8,14 +8,19 @@ html
 				|Search
 		link(rel="stylesheet", type="text/css", href="/css/reset.css")
 		link(rel="stylesheet", type="text/css", href="/css/main.css")
+		link(rel="stylesheet", type="text/css", href="/css/search.css")
 	body
-		form(action="/search")
-			input(type="search", placeholder="search", name="q", value="#{query || ''}", required="required")
-		if query
-			if results && results.length
-				h2 Search results for "#{query}"
-				each recipe in results
-					a(href="/recipe/#{recipe.slug}") #{recipe.name}
-					br
-			else
-				|No results found.
+		include includes/header
+		center
+			form(action="/search")
+				#result-container
+					input(type="search", placeholder="search", name="q", value="#{query || ''}", required="required")
+					if query
+						if results && results.length
+							h2 Search results for "#{query}"
+							br
+							include mixins/recipe
+							each recipe in results
+								+recipe-cell(recipe)
+						else
+							|No results found.
